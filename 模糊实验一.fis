@@ -1,0 +1,27 @@
+[System]
+Name='3'
+Type='mamdani'
+Version=2.0
+NumInputs=1
+NumOutputs=1
+NumRules=1
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='mom'
+
+[Input1]
+Name='VOL'
+Range=[1 5]
+NumMFs=1
+MF1='vh':'trimf',[3 5 5]
+
+[Output1]
+Name='SPEED'
+Range=[100 500]
+NumMFs=1
+MF1='sh':'trimf',[300 500 500]
+
+[Rules]
+1, 1 (1) : 1
