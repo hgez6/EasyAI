@@ -1,0 +1,14 @@
+>> sp = [3,7;6,4;4,6;7.5,6.5];  %二维矩阵
+>> nsp = size(sp);   %行列大小
+>> sn = [1,3;5,2;7,3;3,4;6,1];
+>> nsn = size(sn);
+>> sd = [sp;sn];
+>> lsd = [true true true true false false false false false];
+>> Y = nominal(lsd);
+>> figure(1);
+>> subplot(1,2,1);   %1、subplot（1,2,1）：一个FIGURE图形生成一行两列两个子图框，subplot(1,2,1)后面一个1表示当前激活第二个子图。 %2、subplot（1,2,2）：一个FIGURE图形生成一行两列两个子图，subplot(1,2,2)后面一个2表示当前激活第二个子图。
+>> plot(sp(1:nsp,1),sp(1:nsp,2),'m+');  %生成+号点
+>> hold on;  %hold on：保持原图并接受此后绘制的新的曲线，叠加绘图
+>> plot(sn(1:nsn,1),sn(1:nsn,2),'c*');   %生成*号点
+>> subplot(1,2,2);
+>> svmStruct = svmtrain(sd,Y,'showplot',true);
